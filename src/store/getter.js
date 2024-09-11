@@ -1,0 +1,9 @@
+export const searchObj = state => state.searchObj
+export const newAddress = state => state.newAddress
+export const areaCode = state => state.areaCode
+export const userInfo = state => state.userInfo
+export const currentPro = state => state.currentPro
+export const shoppingCart = state => state.shoppingCart
+export const cartNumber = state => state.cartNumber
+export const noticeId = state => state.noticeId
+export const collectData = state => state.collectData
