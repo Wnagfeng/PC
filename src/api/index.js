@@ -39,5 +39,14 @@ export const api = {
   editAddress: `${BASEURL}/address/edit`, // 编辑收货地址
   selectAddress: `${BASEURL}/receive/getSelect`, // 选择收货地址查询
 
+  // productDetail.vue(商品详情模块)
+  getEvaluateData: `${BASEURL}/reply/config/`, // 获取商品评价数据
+  getEvaluateList: `${BASEURL}/reply/list/`, // 获取商品评价列表
+  getProducts: `${BASEURL}/products`, // 查询商品
+  getProDetail: `${BASEURL}/product/detail/`, // 商品详情
+  addCart: `${BASEURL}/cart/add`, // 加入购物车
+  collect: `${BASEURL}/collect/add`, // 收藏商品
+  getIndexLike: `${BASEURL}/index/like`, // 获取首页猜你喜欢
+
 }
 export default api

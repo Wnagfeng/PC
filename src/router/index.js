@@ -13,7 +13,7 @@ import favorites from '../views/userCenter/favorites/favorites'
 // 自己引入的路由
 import orderDetail from '../views/orderDetail/index.vue'//1.订单详情
 import productDetail from '../views/productDetail/index.vue'//2.商品详情
-
+import placeOrder from '../views/placeOrder/placeOrder.vue'//3.下单
 
 Vue.use(Router)
 
@@ -125,6 +125,16 @@ const router = new Router({
                     path: '/productDetail',
                     name: 'productDetail',
                     component: productDetail,
+                    meta: {
+                        logoText: '',
+                        searchVisible: true
+                    }
+                },
+                // 3.下单
+                {
+                    path: '/placeOrder',
+                    name: 'placeOrder',
+                    component: placeOrder,
                     meta: {
                         logoText: '',
                         searchVisible: true

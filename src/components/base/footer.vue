@@ -39,6 +39,7 @@ export default {
 .footer {
     width: 100%;
     height: 180px;
+
    
     background-color: #F1F2F7;
     opacity: 0.82;
