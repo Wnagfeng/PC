@@ -17,9 +17,8 @@
                     <p>手机号：{{ item.phone }}</p>
                 </div>
                 <div class="cardBtn">
-                    <div class="flex-items-plus" @click="deleteHandler(item)"><i
-                            class="iconfont icon-shanchu"></i>&nbsp;删除</div>
-                    <div class="flex-items-plus" @click="editHandler(item)"><i class="iconfont icon-xiugai"></i>&nbsp;修改
+                    <div class="" @click="deleteHandler(item)"><i class="iconfont icon-shanchu"></i>&nbsp;删除</div>
+                    <div class="" @click="editHandler(item)"><i class="iconfont icon-xiugai"></i>&nbsp;修改
                     </div>
                 </div>
                 <i v-if="item.isDefault" class="iconfont icon-xuanzhongjiaobiao"></i>
@@ -61,7 +60,28 @@ export default {
         return {
             deleteDialog: false,
             showDialog: false,
-            addressList: [],
+            addressList: [
+                {
+                    id: '1',
+                    realName: "CoderJoon",
+                    phone: "13344556677",
+                    province: "北京市",
+                    city: "北京市",
+                    district: " 东城区",
+                    detail: "中关村",
+                    isDefault: 0
+                },
+                {
+                    id: '2',
+                    realName: "CoderJoon",
+                    phone: "13344556677",
+                    province: "北京市",
+                    city: "北京市",
+                    district: " 东城区",
+                    detail: "中关村",
+                    isDefault: 0
+                }
+            ],
             dialogType: 0,
             form: {
                 "id": '',
@@ -253,7 +273,11 @@ export default {
                 box-sizing: border-box;
                 display: flex;
 
+
                 >div {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     cursor: pointer;
                     width: 50%;
                     height: 50px;
