@@ -221,33 +221,50 @@ export default {
             },
             specList: [
                 {
-                    attrName: "分类",//规格名称
+                    attrName: "内存",
                     attrValue: [
-                        {
-                            attr: "6+128",
-                            price: "8999",
-                            check: false
-                        },
-                        {
-                            attr: "6+256",
-                            price: "9999",
-                            check: false
-                        },
-                        {
-                            attr: "6+512",
-                            price: "11999",
-                            check: false
-                        }
-                    ]//规格分类
+                        { attr: "64GB", check: false },
+                        { attr: "128GB", check: false },
+                        { attr: "256GB", check: false }
+                    ]
                 }
-            ], // 规格列表
-            skuList: [], // sku列表
+            ], // 规格列表对应的价格
+            // skulist可能是对象，暂时用对象模拟数据，后面改成数组
+            // skuList: [
+            //     // 模拟数据
+            //     // "64GB":
+            // ], // sku列表
+            skuList: {
+                // 模拟数据
+                "64GB": {
+                    id: 1,
+                    unique: "123456789",
+                    price: 1299,
+                    otPrice: 1599,
+                    stock: 100,
+                },
+                "128GB": {
+                    id: 2,
+                    unique: "123456789",
+                    price: 2299,
+                    otPrice: 2599,
+                    stock: 100,
+                },
+                "256GB": {
+                    id: 3,
+                    unique: "123456789",
+                    price: 3299,
+                    otPrice: 3599,
+                    stock: 100,
+                }
+            }, // sku列表
             skuInfo: {
-                price: "8999",
-                otPrice: "9999",
-                stock: 199,
-                unique: "1"
-            }, // sku信息
+                id: 1,
+                unique: "123456789",
+                price: 1299,
+                otPrice: 1599,
+                stock: 100,
+            }, // 商品信息
             specSelected: [], // 选中的规格
             favorite: false,
             activeName: 'Detail',
@@ -255,7 +272,7 @@ export default {
             currentProductData: {},
             replyCount: 0,
             productNumber: 1,
-            currentPro: JSON.parse(this.$route.query.proData),
+            currentPro: JSON.parse(this.$route.query.proData),//获取到商品的id 用于请求商品详情数据!
             type: 0,//0 全部 1 好评 2 中评 3 差评
             // 评论列表
             plList: [
@@ -294,6 +311,7 @@ export default {
         }
     },
     created() {
+        // 发请求获取数据
         this.getProductInfo()
         this.getLikeProduct()
     },
@@ -306,21 +324,22 @@ export default {
         })
     },
     watch: {
-        // 监听规格参数变化
+        // 监听选择规格参数变化
         specSelected(value) {
-            console.log("选择了规格", value)
+            console.log(value)
+
             let sku = ''
             value.forEach((item, sindex) => {
                 console.log(item)
                 sku += item.attr + ','
             })
-
             sku = sku.substring(0, sku.length - 1)
-            console.log(sku)
+            console.log("当前选中的key", sku)
             let s = this.skuList
-            console.log(s)
+            // console.log(s)
+            // skuList可能是对象，暂时用对象模拟数据，后面改成数组
             this.skuInfo = s[sku]
-            // console.log("s", s)
+            console.log("s", s[sku])
         },
         type() {
             this.getPlList()
@@ -332,7 +351,7 @@ export default {
             setShoppingCart: 'SET_SHOPPINGCART',
             setCollectData: 'SET_COLLECTDATA'
         }),
-        //
+        //0.获取评论列表
         getPlList() {
             let params = {
                 method: 'get',
@@ -347,11 +366,12 @@ export default {
                 this.plList = res.data
             })
         },
+        // 切换分页
         handleCurrentChange(data) {
             this.page = data
             this.getPlList()
         },
-        // 获取数据
+        // 1.获取评论数据(总数等...)
         getPlConfig() {
             let params = {
                 method: 'get',
@@ -361,7 +381,7 @@ export default {
                 this.plConfig = res.data
             })
         },
-        // 获取商品详情
+        // 2.获取商品详情
         getProductInfo() {
             // const rLoading = this.openLoading()
             let self = this
@@ -388,7 +408,7 @@ export default {
                 }
             })
         },
-        // 获取猜你喜欢
+        // 3.获取猜你喜欢
         getLikeProduct() {
             var _this = this
             let params = {
@@ -406,12 +426,13 @@ export default {
                 }
             })
         },
+        // 
         reloadDetail() {
             this.$router.go(0)
             // this.reload()
         },
 
-        // 加入购物车
+        // 加入购物车请求
         clickAddCart() {
             console.log("点击了加入购物车")
             console.log("cartNum", this.productNumber)
@@ -442,7 +463,7 @@ export default {
                 this.$message.warning('商品库存不足')
             }
         },
-        // 购物车列表
+        // 获取购物车列表
         async getTrolleyList() {
             const self = this
             const params = {
@@ -455,13 +476,14 @@ export default {
                 this.setCartNumber(d.length)
             })
         },
+        // 点击切换tab
         clickSwitchTab(type) {
             this.currentComp = type
         },
         handleClick(tab, event) {
             // console.log(tab, event)
         },
-        // 购买
+        // 购买请求
         buyGood() {
             let self = this
             if (this.skuInfo.stock > 0) {
@@ -470,6 +492,7 @@ export default {
                 //     this.$store.commit('resetVuex')
                 //     this.$router.push({ path: '/login' })
                 // } else {
+                // 测试跳转到订单页面
                 this.$router.push({
                     path: '/placeOrder',
                     query: {
@@ -507,7 +530,9 @@ export default {
         },
         // 选择规格sku
         selectSku(index, cindex) {
-            this.specSelected = []
+            this.specSelected = []//清空已选规格
+            // console.log("specSelected", specSelected)
+            // 选中当前规格
             this.specList.forEach((item, sindex) => {
                 if (index === sindex) {
                     for (let i = 0; i < item.attrValue.length; i++) {
@@ -520,6 +545,7 @@ export default {
                 }
             })
 
+            // 将选中的规格放入specSelected
             this.specList.forEach((item) => {
                 for (let i = 0; i < item.attrValue.length; i++) {
                     if (item.attrValue[i].check) {
@@ -527,13 +553,14 @@ export default {
                     }
                 }
             })
+            console.log("当前选中的规格", this.specSelected)
         },
         // 轮播图
         thumbsClick(index) {
             this.swiperThumbs.slideTo(index, 300, false)
             this.swiperTop.slideTo(index, 300, false)
         },
-        // 收藏
+        // 收藏请求
         collect() {
             if (this.favorite === false) {
                 let params = {
@@ -567,6 +594,7 @@ export default {
                 })
             }
         },
+        // 封装替换url的hook函数
         replaceImgSrc(basePrefix, questionContent) {
             if (questionContent) {
                 questionContent = questionContent.replace(new RegExp(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi), function (match, capture) {
