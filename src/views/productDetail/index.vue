@@ -271,7 +271,7 @@ export default {
             similarProducts: [],
             currentProductData: {},
             replyCount: 0,
-            productNumber: 1,
+            productNumber: 1,//商品数量
             currentPro: JSON.parse(this.$route.query.proData),//获取到商品的id 用于请求商品详情数据!
             type: 0,//0 全部 1 好评 2 中评 3 差评
             // 评论列表

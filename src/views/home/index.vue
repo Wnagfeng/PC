@@ -116,9 +116,6 @@ export default {
 }
 </script>
 <style scoped>
-/*
-   * @Description: 首页css样式
-   */
 .home {
     margin: 0 auto;
     width: 1250px;

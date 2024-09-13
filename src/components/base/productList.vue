@@ -3,7 +3,7 @@
     <div class="productBox" v-for="(item, index) in productList" :key="index">
       <!-- 改变源代码 -->
       <!-- <img class="cur-poi" :src="$api.BASEURL + item.image" /> -->
-      <img class="cur-poi" :src="item.image" />
+      <img class="cur-poi" :src="item.image" @click="toProductDetail(item)" />
       <p class="productName">{{ item.storeName }}</p>
       <div class="price">
         <span class="presentPrice">¥{{ item.price }}</span>
@@ -21,6 +21,18 @@ export default {
     return {}
   },
   methods: {
+    toProductDetail(item) {
+      let data = {
+        productId: item.id
+      }
+      console.log(item, data)
+      this.$router.push({
+        path: '/productDetail',
+        query: {
+          proData: JSON.stringify(data)
+        }
+      })
+    }
   }
 }
 </script>
