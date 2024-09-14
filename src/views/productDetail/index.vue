@@ -443,12 +443,21 @@ export default {
                 }
             })
         },
-        // 
-        reloadDetail() {
-            // 需要执行一次重新渲染
-            // this.$router.go(0)
-            this.reload()
+        //1. 方案一: 子组件push路由携带id强行刷新页面
+        /*   reloadDetail() {
+              this.$router.go(0)
+              this.reload()
+          }, */
+        //2. 方案二:子组件排法id,父组件监听,手动获取数据(缺点:路由没有更新后果未知)
+        reloadDetail(GuessData) {
+            this.currentPro = GuessData
+            console.log("newId", this.currentPro)
+            // 发请求获取数据
+            this.getProductInfo()
+            this.getLikeProduct()
         },
+        //3. 方案三:子组件更新路由,且emit携带id过来(方案二就能处理了)
+
 
         // 加入购物车请求
         clickAddCart() {
@@ -501,50 +510,43 @@ export default {
         handleClick(tab, event) {
             // console.log(tab, event)
         },
-        // 购买请求
+        // 购买
         buyGood() {
             let self = this
             if (this.skuInfo.stock > 0) {
-                // if (!Cookie.get('token')) {
-                //     this.$message.warning('请先登录')
-                //     this.$store.commit('resetVuex')
-                //     this.$router.push({ path: '/login' })
-                // } else {
-                // 测试跳转到订单页面
-                this.$router.push({
-                    path: '/placeOrder',
-                    query: {
-                        cartId: 1
+                if (!Cookie.get('token')) {
+                    this.$message.warning('请先登录')
+                    this.$store.commit('resetVuex')
+                    this.$router.push({ path: '/login' })
+                } else {
+                    let params = {
+                        url: api.addCart,
+                        method: 'POST',
+                        data: {
+                            cartNum: self.productNumber,
+                            uniqueId: self.skuInfo.unique,
+                            productId: self.productDetailData.id,
+                            new: 1
+                        }
                     }
-                })
-                let params = {
-                    url: api.addCart,
-                    method: 'POST',
-                    data: {
-                        cartNum: self.productNumber,
-                        uniqueId: self.skuInfo.unique,
-                        productId: self.productDetailData.id,
-                        new: 1
-                    }
+                    self.sendReq(params, (res) => {
+                        if (res.status === 200) {
+                            let cartId = res.data.cartId
+                            // 跳转到订单页面 携带购物车id
+                            this.$router.push({
+                                path: '/placeOrder',
+                                query: {
+                                    cartId: cartId
+                                }
+                            })
+                        } else {
+                            self.$message(res.msg)
+                        }
+                    })
                 }
-                self.sendReq(params, (res) => {
-
-                    if (res.status === 200) {
-                        let cartId = res.data.cartId
-                        this.$router.push({
-                            path: '/placeOrder',
-                            query: {
-                                cartId: cartId
-                            }
-                        })
-                    } else {
-                        self.$message(res.msg)
-                    }
-                })
+            } else {
+                this.$message.warning('商品库存不足')
             }
-            // } else {
-            //     this.$message.warning('商品库存不足')
-            // }
         },
         // 选择规格sku
         selectSku(index, cindex) {
