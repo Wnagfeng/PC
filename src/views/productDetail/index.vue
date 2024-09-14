@@ -162,7 +162,7 @@
 <script>
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 // import detailData from './detailData'
-import likeList from './likeList'
+import likeList from './likeList.vue'
 import 'swiper/dist/css/swiper.css'
 // import CereHeader from '../../components/canvasShow/cereshop/pc/header'
 import api from '../../api'
@@ -178,9 +178,9 @@ export default {
         // detailData,
         likeList
     },
+    inject: ['reload'],
     mixins: [listSearchMixin],
 
-    // inject: ['reload'],
     data() {
         return {
             showPl: false,
@@ -268,7 +268,23 @@ export default {
             specSelected: [], // 选中的规格
             favorite: false,
             activeName: 'Detail',
-            similarProducts: [],
+            similarProducts: [
+                {
+                    id: 1,
+                    image: "https://2c.zol-img.com.cn/product/222_800x600/918/ceZEvcveZhPV6.jpg",
+                    storeName: "iPhone 12 Pro Max"
+                },
+                {
+                    id: 2,
+                    image: "https://2b.zol-img.com.cn/product/252_800x600/385/cec8WM4298ynk.jpg",
+                    storeName: "iPhone 13 Pro Max"
+                },
+                {
+                    id: 3,
+                    image: "https://2f.zol-img.com.cn/product/252_800x600/263/ceNWt83DFZsIU.jpg",
+                    storeName: "iPhone 14 Pro Max"
+                }
+            ],//猜你喜欢列表
             currentProductData: {},
             replyCount: 0,
             productNumber: 1,//商品数量
@@ -314,6 +330,7 @@ export default {
         // 发请求获取数据
         this.getProductInfo()
         this.getLikeProduct()
+        console.log("渲染了")
     },
     mounted() {
         this.$nextTick(() => {
@@ -428,8 +445,9 @@ export default {
         },
         // 
         reloadDetail() {
-            this.$router.go(0)
-            // this.reload()
+            // 需要执行一次重新渲染
+            // this.$router.go(0)
+            this.reload()
         },
 
         // 加入购物车请求

@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <router-view></router-view>
+    <router-view v-if="isRouterAlive"></router-view>
   </div>
 </template>
 
@@ -8,7 +8,26 @@
 
 
 export default {
-  name: 'app'
+  name: 'app',
+  data() {
+    return {
+      isRouterAlive: true
+    }
+  },
+  provide() {
+    return {
+      reload: this.reload
+    }
+  },
+  methods: {
+    reload() {
+      console.log("调用了 reload")
+      this.isRouterAlive = false
+      this.$nextTick(function () {
+        this.isRouterAlive = true
+      })
+    }
+  }
 }
 </script>
 
