@@ -514,39 +514,45 @@ export default {
         buyGood() {
             let self = this
             if (this.skuInfo.stock > 0) {
-                if (!Cookie.get('token')) {
-                    this.$message.warning('请先登录')
-                    this.$store.commit('resetVuex')
-                    this.$router.push({ path: '/login' })
-                } else {
-                    let params = {
-                        url: api.addCart,
-                        method: 'POST',
-                        data: {
-                            cartNum: self.productNumber,
-                            uniqueId: self.skuInfo.unique,
-                            productId: self.productDetailData.id,
-                            new: 1
-                        }
+                // if (!Cookie.get('token')) {
+                //     this.$message.warning('请先登录')
+                //     this.$store.commit('resetVuex')
+                //     this.$router.push({ path: '/login' })
+                // } else {
+                this.$router.push({
+                    path: '/placeOrder',
+                    query: {
+                        cartId: 1
                     }
-                    self.sendReq(params, (res) => {
-                        if (res.status === 200) {
-                            let cartId = res.data.cartId
-                            // 跳转到订单页面 携带购物车id
-                            this.$router.push({
-                                path: '/placeOrder',
-                                query: {
-                                    cartId: cartId
-                                }
-                            })
-                        } else {
-                            self.$message(res.msg)
-                        }
-                    })
+                })
+                let params = {
+                    url: api.addCart,
+                    method: 'POST',
+                    data: {
+                        cartNum: self.productNumber,
+                        uniqueId: self.skuInfo.unique,
+                        productId: self.productDetailData.id,
+                        new: 1
+                    }
                 }
-            } else {
-                this.$message.warning('商品库存不足')
+                self.sendReq(params, (res) => {
+                    if (res.status === 200) {
+                        let cartId = res.data.cartId
+                        // 跳转到订单页面 携带购物车id
+                        this.$router.push({
+                            path: '/placeOrder',
+                            query: {
+                                cartId: cartId
+                            }
+                        })
+                    } else {
+                        self.$message(res.msg)
+                    }
+                })
             }
+            // } else {
+            //     this.$message.warning('商品库存不足')
+            // }
         },
         // 选择规格sku
         selectSku(index, cindex) {

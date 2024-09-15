@@ -58,5 +58,10 @@ export const api = {
   upload: `${BASEURL}/uploads`,  // 图片上传
   orderComment: `${BASEURL}/order/comment`, // 订单评价
 
+  // 支付页面(placeOrder.vue)
+  orderSubmit: `${BASEURL}/order/create/`, // 订单创建
+  orderComputed: `${BASEURL}/order/computed/`, // 计算订单金额
+  orderConfirm: `${BASEURL}/order/confirm`, // 获取订单信息
+
 }
 export default api

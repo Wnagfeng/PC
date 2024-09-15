@@ -66,25 +66,9 @@ reloadDetail(GuessData) {
 子组件
  // 跳转到商品详情
 //1. 方案一:子组件push路由携带id强行刷新页面
-/*    goToProDetail(item) {
-     let data = {
-       productId: item.id
-     }
-     this.$router.push({
-       path: '/productDetail',
-       query: {
-         proData: JSON.stringify(data)
-       }
-     })
-     this.$emit('reloadDetail')
-   }, */
+/*    */
 //2. 方案二:子组件排法id,父组件监听,手动获取数据(缺点:路由没有更新后果未知)
-// goToProDetail(item) {
-//   let data = {
-//     productId: item.id
-//   }
-//   this.$emit('reloadDetail', data)
-// }
+
 //3. 方案三:子组件更新路由,且emit携带id过来
 goToProDetail(item) {
   let data = {
