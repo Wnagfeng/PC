@@ -23,6 +23,8 @@ export const api = {
   uptUserInfo: `${BASEURL}/user/edit`,// 修改个人信息
   mydata: `${BASEURL}/mydata`,
 
+  // 添加的接口
+
   //myOrder.vue(订单模块)
   getOrderList: `${BASEURL}/order/list`, // 查询订单列表
   payOrder: `${BASEURL}/order/pay`, // 订单支付
@@ -51,6 +53,10 @@ export const api = {
   // 订单详情模块(orderDetail.vue)
   getUser: `${BASEURL}/userinfo`, // 个人信息查询
   getOrderDetail: `${BASEURL}/order/detail/`, // 查询订单详情
+
+  // 订单评价模块(evaluate.vue)
+  upload: `${BASEURL}/uploads`,  // 图片上传
+  orderComment: `${BASEURL}/order/comment`, // 订单评价
 
 }
 export default api

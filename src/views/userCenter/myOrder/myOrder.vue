@@ -98,7 +98,7 @@ export default {
                     realName: "CoderJoon",
                     totalPrice: "899",
                     statusDto: {
-                        type: 0
+                        type: 3
                     },
                     cartInfo: [
                         {

@@ -138,7 +138,7 @@ export default {
         payPostage: "10",
         payPrice: "10",
         statusDto: {
-          type: 1,
+          type: 3,
         },
         cartInfo: [
           {

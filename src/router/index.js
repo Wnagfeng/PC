@@ -14,6 +14,7 @@ import favorites from '../views/userCenter/favorites/favorites'
 import orderDetail from '../views/orderDetail/index.vue'//1.订单详情
 import productDetail from '../views/productDetail/index.vue'//2.商品详情
 import placeOrder from '../views/placeOrder/placeOrder.vue'//3.下单
+import evaluate from '../views/evaluate/index.vue'//评价页面
 
 Vue.use(Router)
 
@@ -139,6 +140,17 @@ const router = new Router({
                         logoText: '',
                         searchVisible: true
                     }
+                },
+                // 4.订单完成评价页面
+                {
+                    path: '/evaluate',
+                    name: 'evaluate',
+                    component: evaluate,
+                    meta: {
+                        logoText: '',
+                        searchVisible: true
+                    }
+
                 },
             ]
         },
