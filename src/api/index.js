@@ -48,5 +48,9 @@ export const api = {
   collect: `${BASEURL}/collect/add`, // 收藏商品
   getIndexLike: `${BASEURL}/index/like`, // 获取首页猜你喜欢
 
+  // 订单详情模块(orderDetail.vue)
+  getUser: `${BASEURL}/userinfo`, // 个人信息查询
+  getOrderDetail: `${BASEURL}/order/detail/`, // 查询订单详情
+
 }
 export default api
