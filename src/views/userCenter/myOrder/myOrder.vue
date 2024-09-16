@@ -345,6 +345,18 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+/deep/ .is-active {
+    color: #FF7800;
+}
+// 鼠标移入样式
+/deep/.el-tabs__item:hover {
+    color: #FF7800;
+}
+
+.el-tabs /deep/ .el-tabs__active-bar {
+    background-color: #FF7800 !important;
+}
+
 .myOrder {
     width: 100%;
 

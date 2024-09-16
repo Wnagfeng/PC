@@ -63,5 +63,10 @@ export const api = {
   orderComputed: `${BASEURL}/order/computed/`, // 计算订单金额
   orderConfirm: `${BASEURL}/order/confirm`, // 获取订单信息
 
+  // 我的收藏(favorites.vue)
+  getAllProduct: `${BASEURL}/collect/user`, // 获取收藏列表
+  unfavorite: `${BASEURL}/collect/del`, // 取消收藏
+  unfavorites: `${BASEURL}/collect/dels/`, // 批量取消收藏
+
 }
 export default api
