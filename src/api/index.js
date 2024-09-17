@@ -66,7 +66,7 @@ export const api = {
   // 我的收藏(favorites.vue)
   getAllProduct: `${BASEURL}/collect/user`, // 获取收藏列表或者足迹列表 Type区分
   unfavorite: `${BASEURL}/collect/del`, // 取消收藏
-  unfavorites: `${BASEURL}/collect/dels/`, // 批量取消收藏
+  unfavorites: `${BASEURL}/collect/dels/`, // 收藏和足迹的批量取消
 
 }
 export default api
