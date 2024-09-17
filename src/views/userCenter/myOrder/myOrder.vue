@@ -348,23 +348,44 @@ export default {
 /deep/ .is-active {
     color: #FF7800;
 }
+
 // 鼠标移入样式
 /deep/.el-tabs__item:hover {
     color: #FF7800;
+}
+
+/deep/.el-pagination {
+    // min-width: 150px;
+    float: right;
+}
+
+/deep/.el-pagination.is-background .el-pager li:not(.disabled).active {
+    position: relative;
+    background-color: #FF7800;
+    // right: 0;
 }
 
 .el-tabs /deep/ .el-tabs__active-bar {
     background-color: #FF7800 !important;
 }
 
+/deep/.el-tabs__nav-scroll {
+    border: 1px solid #eee;
+    padding: 5px 15px 0px 10px;
+    box-sizing: border-box;
+}
+
 .myOrder {
     width: 100%;
+
+
 
     .top {
         width: 100%;
         font-size: 14px;
         box-sizing: border-box;
         position: relative;
+
 
         // 部分替换为less语法
         >>>.el-tabs {
@@ -559,5 +580,6 @@ export default {
 
 .sub-main {
     min-height: 400px;
+
 }
 </style>

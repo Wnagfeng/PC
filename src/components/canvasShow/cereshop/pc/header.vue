@@ -145,6 +145,7 @@ export default {
 
   .left {
     float: left;
+    // margin-right: 100px;
 
     span {
       // 替换变量
@@ -428,6 +429,7 @@ export default {
       .logo {
         margin: 32px 15px 32px -60px;
         display: flex;
+        margin-left: -40px;
 
         span {
           padding-left: 10px;
@@ -459,6 +461,7 @@ export default {
     .search {
       width: 472px;
       max-width: 100%;
+     
       // 替换变量
       // border: 1px solid $mainColor;
       border: 1px solid #FF7800;
@@ -468,6 +471,7 @@ export default {
       margin: 25px 0;
       position: relative;
       display: flex;
+      margin-right: 60px;
 
       // 部分替换为less语法
       // .searchSelect {

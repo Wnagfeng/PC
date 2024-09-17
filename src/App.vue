@@ -33,6 +33,7 @@ export default {
 
 <style>
 .app {
-  padding: 20px;
+  /* padding: 10px;
+  box-sizing: border-box; */
 }
 </style>

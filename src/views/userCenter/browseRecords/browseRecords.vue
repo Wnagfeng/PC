@@ -93,7 +93,19 @@ export default {
                     image: "https://tse2-mm.cn.bing.net/th/id/OIP-C.4NNpzpzPNRr_FwxSlU61-AHaJ4?rs=1&pid=ImgDetMain",
                     storeName: "iPhone 20 Pro Max",
                     price: "1299"
-                }
+                },
+                {
+                    pid: 6,
+                    image: "https://tse2-mm.cn.bing.net/th/id/OIP-C.4NNpzpzPNRr_FwxSlU61-AHaJ4?rs=1&pid=ImgDetMain",
+                    storeName: "iPhone 20 Pro Max",
+                    price: "1299"
+                },
+                {
+                    pid: 6,
+                    image: "https://tse2-mm.cn.bing.net/th/id/OIP-C.4NNpzpzPNRr_FwxSlU61-AHaJ4?rs=1&pid=ImgDetMain",
+                    storeName: "iPhone 20 Pro Max",
+                    price: "1299"
+                },
             ],
             flag: true,
             loading: false
@@ -310,13 +322,17 @@ export default {
             }
 
             .listBox {
-                display: flex; // 使用 Flexbox 布局
-                flex-wrap: wrap; // 允许换行
-                justify-content: space-between; // 均匀分配空间
+                width: 100%;
+
+                display: grid;
+                /* 使用 Grid 布局 */
+                grid-template-columns: repeat(5, 1fr);
+                /* 一行五个 */
+                gap: 18px;
 
                 .recordsItem {
                     position: relative;
-                    width: calc(20% - 18px); // 根据需要计算宽度，减去间距
+                    // width: calc(20% - 18px); // 根据需要计算宽度，减去间距
                     margin-bottom: 30px; // 底部间距
 
                     .imgBox {

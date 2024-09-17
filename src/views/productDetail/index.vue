@@ -82,7 +82,7 @@
                 <div class="clearfix"></div>
             </div>
             <!-- 商品详情底部图片和评论区 -->
-            <div class="productDetail  ">
+            <div class="productDetail">
                 <div class="detailTabs">
 
                     <span :class="{ compActive: currentComp === 'detailData' }"
@@ -646,12 +646,16 @@ export default {
 
 .productBox {
     margin-top: 50px;
+    width: 100%;
 
     .productConcise {
+        width: 1250px;
+        margin: 0 auto;
         margin-bottom: 60px;
+        // border: 1px solid black;
 
         .swiper-box {
-            width: 580px;
+            width: 50%;
             position: relative;
             margin-right: 50px;
             float: left;
@@ -748,7 +752,7 @@ export default {
         }
 
         .proDuctInfo {
-            width: 578px;
+            width: 45%;
             float: left;
 
             .productTit {
@@ -1167,7 +1171,10 @@ export default {
     }
 
     .productDetail {
-
+        width: 1250px;
+        margin: 0 auto;
+        overflow: hidden;
+        // border: 1px solid black;
 
         .detailTabs {
             margin-bottom: 30px;
@@ -1191,11 +1198,11 @@ export default {
         }
 
         .detailBox {
-
+            width: 1300px;
             margin-bottom: 100px;
 
             .detailInfoBox {
-                width: 890px;
+                width: 70%;
                 float: left;
                 min-height: 1200px;
                 border-right: 1px solid #cacaca;
@@ -1213,7 +1220,7 @@ export default {
             }
 
             .likeProductBox {
-                width: 280px;
+                width: 25%;
                 float: left;
                 padding-left: 44px;
             }

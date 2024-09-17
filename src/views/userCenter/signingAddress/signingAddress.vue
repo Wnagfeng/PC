@@ -140,7 +140,7 @@ export default {
             console.log("点击了编辑")
         },
         getList() {
-            this.load = true
+            // this.load = true
             let self = this
             let params = {
                 url: this.$api.addressList,
@@ -234,7 +234,7 @@ export default {
     padding: 30px;
 
     .topButton {
-        padding: 5px 10px;
+        padding: 13px 20px;
         color: #FF7800;
         border: 1px solid #FF7800;
         display: inline-block;

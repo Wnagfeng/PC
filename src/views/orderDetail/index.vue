@@ -275,6 +275,7 @@ export default {
 
   .banxin {
     width: 1252px;
+    background-color: antiquewhite;
     margin: 0 auto;
 
     .head {

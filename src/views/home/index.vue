@@ -31,7 +31,6 @@
                 </div>
             </div>
         </div>
-        <!-- <mydataview></mydataview> -->
         <!-- <loading-toast ref="loadingToast"></loading-toast> -->
     </div>
 </template>

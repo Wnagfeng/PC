@@ -158,6 +158,7 @@ export default {
   font-size: 14px;
 
   .welcome {
+    margin-left: 50px;
     position: relative;
 
     .outLogin {
@@ -211,6 +212,7 @@ export default {
 
   .right {
     float: right;
+    margin-right: 50px;
 
     .item {
       padding: 0 15px;

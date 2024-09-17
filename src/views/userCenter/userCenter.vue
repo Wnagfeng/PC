@@ -25,7 +25,7 @@
 
 <script>
 // import Cookie from 'js-cookie'
-// import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 export default {
     name: 'userCenter',
     created() {
@@ -36,9 +36,9 @@ export default {
         // }
     },
     computed: {
-        // ...mapGetters([
-        //     'userInfo'
-        // ]),
+        ...mapGetters([
+            'userInfo'
+        ]),
         defaultActive: function () {
             return this.$route.path.replace('/', '')
         }
@@ -46,69 +46,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-// 全部替换为less
-// 全部改为less了这一大段都是scss
-// .userCenter {
-//     margin-top: 30px;
-//     display: flex;
-//     margin-bottom: 140px;
-
-//     .leftMenu {
-//         width: 186px;
-//         border: 1px solid #E5E5E5;
-//         margin-right: 16px;
-
-//         .leftMenuBox {
-//             >>>.el-menu {
-//                 border-right: none;
-//             }
-
-//             >>>.el-menu-item {
-//                 padding: 0 !important;
-//                 display: block;
-
-//                 .title {
-//                     width: 100%;
-//                     padding-left: 50px;
-//                     border-left: 4px solid #ffffff;
-//                     position: relative;
-//                 }
-
-//                 .tip {
-//                     height: 18px;
-//                     line-height: 18px;
-//                     border-radius: 9px;
-//                     color: #ffffff;
-//                     font-size: 12px;
-//                     padding: 0 5px;
-//                     background-color: #FF7800;
-//                     position: absolute;
-//                     right: -18px;
-//                     top: -8px;
-//                 }
-//             }
-
-//             >>>.el-menu-item:focus,
-//             .el-menu-item:hover {
-//                 background: none;
-//             }
-
-//             >>>.is-active {
-//                 .title {
-//                     border-left: 4px solid $mainColor;
-//                     box-sizing: content-box;
-//                 }
-//             }
-//         }
-//     }
-
-//     .userCenterInfo {
-//         flex: 1;
-//     }
-// }
-@mainColor: #FF7800; // 定义主颜色变量
-
+<style lang="scss" scoped>
 .userCenter {
     margin-top: 30px;
     display: flex;
@@ -120,11 +58,11 @@ export default {
         margin-right: 16px;
 
         .leftMenuBox {
-            .el-menu {
+            >>>.el-menu {
                 border-right: none;
             }
 
-            .el-menu-item {
+            >>>.el-menu-item {
                 padding: 0 !important;
                 display: block;
 
@@ -147,16 +85,16 @@ export default {
                     right: -18px;
                     top: -8px;
                 }
-
-                &:focus,
-                &:hover {
-                    background: none;
-                }
             }
 
-            .is-active {
+            >>>.el-menu-item:focus,
+            .el-menu-item:hover {
+                background: none;
+            }
+
+            >>>.is-active {
                 .title {
-                    border-left: 4px solid @mainColor;
+                    border-left: 4px solid #FF7800;
                     box-sizing: content-box;
                 }
             }
@@ -164,6 +102,9 @@ export default {
     }
 
     .userCenterInfo {
+        // padding: 20px;
+        padding-right: 10px;
+        box-sizing: border-box;
         flex: 1;
     }
 }
