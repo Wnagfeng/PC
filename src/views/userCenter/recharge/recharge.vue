@@ -51,7 +51,7 @@ export default {
     methods: {
         // 充值方案列表
         getRecharge(state) {
-            const rLoading = this.openLoading()
+            // const rLoading = this.openLoading()
             let self = this
             let params = {
                 url: api.getRecharge,
@@ -91,6 +91,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/deep/ #tab-recharge {
+    color: #FF7800;
+    margin-left: 10px;
+}
+
+// 滑块样式
+.el-tabs /deep/ .el-tabs__active-bar {
+    margin-left: 10px;
+    background-color: #FF7800 !important;
+}
+
 .recharge {
     border: 1px solid #E5E5E5;
     min-height: 500px;
