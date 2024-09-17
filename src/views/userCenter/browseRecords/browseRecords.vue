@@ -244,7 +244,7 @@ export default {
 
     .recordsTit {
         display: flex;
-        padding: 0 25px;
+        padding: 0 15px;
         border-bottom: 1px solid #F5F5F5;
         justify-content: space-between;
         align-items: center;
@@ -252,7 +252,8 @@ export default {
 
         span {
             display: block;
-            height: 60px;
+            height: 40px;
+            padding-bottom: 5px;
             line-height: 60px;
         }
 
@@ -268,7 +269,7 @@ export default {
             width: 78px;
             text-align: center;
             height: 28px;
-            line-height: 28px;
+            line-height: 35px;
             background: #FF7800;
             cursor: pointer;
         }
@@ -314,27 +315,37 @@ export default {
                 justify-content: space-between; // 均匀分配空间
 
                 .recordsItem {
-                    width: 186px;
-                    float: left;
-                    margin: 0 18px 20px 0;
                     position: relative;
+                    width: calc(20% - 18px); // 根据需要计算宽度，减去间距
+                    margin-bottom: 30px; // 底部间距
 
                     .imgBox {
-                        width: 186px;
-                        height: 186px;
+                        width: 100%;
+                        height: 206px;
+                        max-width: 206px;
+                        margin: 0 auto;
                         border: 1px solid #E5E5E5;
+                        border-bottom: 0;
+                        // padding:;
+                        padding-left: 10px;
+                        padding-right: 10px;
+                        padding-top: 3px;
+                        padding-bottom: 3px;
                         box-sizing: border-box;
 
                         img {
                             width: 100%;
-                            height: 186px;
+                            height: 100%;
                         }
                     }
 
                     .info {
+                        margin: 0 auto;
                         border: 1px solid #E5E5E5;
+                        box-sizing: border-box;
                         text-align: center;
                         padding: 0 15px 15px;
+                        max-width: 206px;
 
                         h3 {
                             font-size: 14px;
@@ -351,9 +362,11 @@ export default {
                     }
 
                     .btnBox {
+                        margin: 0 auto;
                         border: 1px solid #E5E5E5;
                         display: flex;
                         border-top: none;
+                        max-width: 204px;
 
                         span {
                             width: 50%;

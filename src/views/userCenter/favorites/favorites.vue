@@ -121,7 +121,7 @@ export default {
         // 收藏商品查询
         getAllProduct() {
             // 请打开Loading组件
-            this.loading = true
+            // this.loading = true
             let params = {
                 url: api.getAllProduct,
                 method: 'GET',
