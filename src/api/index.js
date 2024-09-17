@@ -68,5 +68,9 @@ export const api = {
   unfavorite: `${BASEURL}/collect/del`, // 取消收藏
   unfavorites: `${BASEURL}/collect/dels/`, // 收藏和足迹的批量取消
 
+  // 钱包重置(recharge.vue)
+  getRecharge: `${BASEURL}/recharge/index`, // 获取充值方案
+  setRecharge: `${BASEURL}/recharge/test`, // 充值
+
 }
 export default api
