@@ -168,6 +168,10 @@ import placeOrder from '../views/placeOrder/placeOrder.vue'//3.下单
   getAllProduct: `${BASEURL}/collect/user`, // 获取收藏列表或者足迹列表 Type区分
   unfavorite: `${BASEURL}/collect/del`, // 取消收藏
   unfavorites: `${BASEURL}/collect/dels/`, // 收藏和足迹的批量取消
+      
+  // 钱包重置(recharge.vue)
+  getRecharge: `${BASEURL}/recharge/index`, // 获取充值方案
+  setRecharge: `${BASEURL}/recharge/test`, // 充值
 ```
 
 ### 6.关于代码的疑惑:boom:：​
