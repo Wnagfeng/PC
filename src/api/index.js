@@ -64,7 +64,7 @@ export const api = {
   orderConfirm: `${BASEURL}/order/confirm`, // 获取订单信息
 
   // 我的收藏(favorites.vue)
-  getAllProduct: `${BASEURL}/collect/user`, // 获取收藏列表
+  getAllProduct: `${BASEURL}/collect/user`, // 获取收藏列表或者足迹列表 Type区分
   unfavorite: `${BASEURL}/collect/del`, // 取消收藏
   unfavorites: `${BASEURL}/collect/dels/`, // 批量取消收藏
 
