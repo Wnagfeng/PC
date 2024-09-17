@@ -163,6 +163,11 @@ import placeOrder from '../views/placeOrder/placeOrder.vue'//3.下单
   orderSubmit: `${BASEURL}/order/create/`, // 订单创建
   orderComputed: `${BASEURL}/order/computed/`, // 计算订单金额
   orderConfirm: `${BASEURL}/order/confirm`, // 获取订单信息
+      
+  // 我的收藏(favorites.vue)
+  getAllProduct: `${BASEURL}/collect/user`, // 获取收藏列表或者足迹列表 Type区分
+  unfavorite: `${BASEURL}/collect/del`, // 取消收藏
+  unfavorites: `${BASEURL}/collect/dels/`, // 收藏和足迹的批量取消
 ```
 
 ### 6.关于代码的疑惑:boom:：​
