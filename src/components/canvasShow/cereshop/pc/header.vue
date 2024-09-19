@@ -22,9 +22,9 @@
             <div class="search" v-if="this.$route.meta.searchVisible">
               <div class="searchRight">
                 <i class="icon el-icon-search"></i>
-                <input type="text" v-model="keyword" placeholder="请输入搜索商品">
+                <input @keydown.enter="search" v-model="keyword" type="text" placeholder="请输入搜索商品">
               </div>
-              <span class="btn cur-poi">搜索</span>
+              <span class="btn cur-poi" @keydown.enter="search" @click="search">搜索</span>
             </div>
           </div>
         </div>
@@ -34,12 +34,12 @@
 </template>
 
 <script>
-// import { mapGetters, mapMutations } from 'vuex'
-// import { funMixin } from '../../config/mixin/index'
-// import api from '@/api'
+import { mapGetters, mapMutations } from 'vuex'
+import { funMixin } from '../../config/mixin/index'
+import api from '@/api'
 export default {
   name: 'cereHeader',
-  // mixins: [funMixin],
+  mixins: [funMixin],
   props: {
     componentContent: {
       type: Object
@@ -47,14 +47,15 @@ export default {
   },
   data() {
     return {
-      keyword: ''
+      keyword: '',
+      searchVal: ''
     }
   },
-  // computed: {
-  //   ...mapGetters([
-  //     'collectData'
-  //   ])
-  // },
+  computed: {
+    ...mapGetters([
+      'collectData'
+    ])
+  },
   destroyed() {
     window.removeEventListener('popstate', this.goBack, false)
   },
@@ -65,10 +66,10 @@ export default {
     }
   },
   methods: {
-    // ...mapMutations({
-    //   setSearchObj: 'SET_SEARCHOBJ',
-    //   setCollectData: 'SET_COLLECTDATA'
-    // }),
+    ...mapMutations({
+      setSearchObj: 'SET_SEARCHOBJ',
+      setCollectData: 'SET_COLLECTDATA'
+    }),
     toStore() {
       console.log(this.collectData.shopId, 'shopId')
       this.$router.push({
@@ -132,6 +133,10 @@ export default {
     },
     goBack() {
       this.keyword = ''
+    },
+    search() {
+      this.setSearchObj({ keyword: this.keyword })
+      this.$router.push("/search")
     }
   }
 }
@@ -461,7 +466,7 @@ export default {
     .search {
       width: 472px;
       max-width: 100%;
-     
+
       // 替换变量
       // border: 1px solid $mainColor;
       border: 1px solid #FF7800;

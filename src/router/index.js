@@ -16,6 +16,7 @@ import productDetail from '../views/productDetail/index.vue'//2.商品详情
 import placeOrder from '../views/placeOrder/placeOrder.vue'//3.下单
 import evaluate from '../views/evaluate/index.vue'//评价页面
 import category from '../views/category/category.vue'//分类页面
+import search from '../views/search/index'//搜索页面
 
 Vue.use(Router)
 
@@ -162,7 +163,16 @@ const router = new Router({
                         logoText: '',
                         searchVisible: true
                     }
-                }
+                },
+                {
+                    path: '/search',
+                    name: 'search',
+                    component: search,
+                    meta: {
+                        logoText: '',
+                        searchVisible: true
+                    }
+                },
             ]
         },
         // 登录

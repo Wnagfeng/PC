@@ -1,6 +1,6 @@
 <template>
   <div class="orderDetail">
-    <div class="banxin">
+    <div class="content">
       <div class="head">
         <router-link to="/myOrder">
           <div class="myOrder">我的订单</div>
@@ -138,7 +138,7 @@ export default {
         payPostage: "10",
         payPrice: "10",
         statusDto: {
-          type: 3,
+          type: 0,
         },
         cartInfo: [
           {
@@ -273,9 +273,9 @@ export default {
 .orderDetail {
   width: 100%;
 
-  .banxin {
+  .content {
     width: 1252px;
-    background-color: antiquewhite;
+    // background-color: antiquewhite;
     margin: 0 auto;
 
     .head {

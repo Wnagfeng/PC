@@ -4,7 +4,7 @@
             <div class='head'>
                 <div class='all'>全部结果</div>
                 <div class='arrow'></div>
-                <div class='keyword'>{{ categoryName }}</div>
+                <div class='keyword'>“{{ keyword }}”</div>
                 <div class='arrow'></div>
             </div>
             <div class='result'>
@@ -19,17 +19,16 @@
                         </div>
                     </div>
                 </div>
-                <div class='titleName'>{{ categoryName }}</div>
                 <div class="pro" v-if="noProduct == false" v-loading="loading">
                     <ProductList :productList='productList'></ProductList>
                 </div>
                 <div class="empty" v-if="noProduct == true && network == false">
                     <img src="../../static/image/nosearch@2x.png" alt="">
-                    <p class="tip ">搜索不到你要找的宝贝呢换个词试试吧～</p>
+                    <p class="fs20 font-color-999">搜索不到你要找的宝贝呢换个词试试吧～</p>
                 </div>
                 <div class="network" v-if="network">
                     <img src="../../static/image/poornetwork@2x.png" alt="">
-                    <p class="tip">哎呀，网络开小差了～</p>
+                    <p class="fs20 font-color-999">哎呀，网络开小差了～</p>
                 </div>
                 <el-pagination v-if="productList.length > 0" :current-page="page" :page-size="12"
                     @current-change="handleCurrentChange" background layout='prev, pager, next' :total='total'>
@@ -43,7 +42,6 @@ import api from '../../api'
 import { listSearchMixin } from '../../config/mixin'
 import ProductList from '../../components/base/productList'
 import { mapGetters } from 'vuex'
-// desc 降序 asc 升序 默认为空
 export default {
     mixins: [listSearchMixin],
     components: {
@@ -53,8 +51,7 @@ export default {
         return {
             flag: true,
             page: 1,
-            sid: '',
-            categoryName: '',
+            keyword: '',
             priceOrder: '',
             index: '1',
             productList: [
@@ -97,10 +94,13 @@ export default {
             loading: false
         }
     },
+    watch: {
+        searchObj(v) {
+            this.searchInfo()
+        }
+    },
     mounted() {
-        this.categoryName = this.$route.query.categoryName
-        this.sid = this.$route.query.cid
-        this.getSearchProducts()
+        this.searchInfo()
     },
     computed: {
         ...mapGetters([
@@ -108,6 +108,12 @@ export default {
         ])
     },
     methods: {
+        searchInfo() {
+            if (this.searchObj.keyword !== undefined) {
+                this.keyword = this.searchObj.keyword
+                this.getSearchProducts()
+            }
+        },
         // 跳转商品详情
         toProductDetail(id, item) {
             let data = {
@@ -125,13 +131,12 @@ export default {
         // 获取搜索商品数据
         getSearchProducts() {
             let self = this
-            // 请打开Loading组件
-            // self.loading = true
+            self.loading = true
             let params = {
                 url: api.getProducts,
                 method: 'GET',
                 payload: {
-                    sid: this.sid,
+                    keyword: self.keyword,
                     priceOrder: self.priceOrder,
                     page: self.page,
                     limit: '12'
@@ -186,12 +191,10 @@ export default {
 /deep/.el-pagination {
     // min-width: 150px;
     float: right;
-    // padding-bottom: 10px;
-    margin-bottom: 30px;
 }
 
 /deep/.el-pagination.is-background .el-pager li:not(.disabled).active {
-    // position: relative;
+    position: relative;
     background-color: #FF7800;
     // right: 0;
 }
@@ -206,6 +209,7 @@ export default {
     .content {
         width: 1252px;
         height: 100%;
+        padding-bottom: 100px;
         margin: 0 auto;
 
         .head {
@@ -235,19 +239,10 @@ export default {
         .result {
             width: 100%;
             background-color: #ffffff;
-            padding: 0 45px 49px;
+            padding: 0 45px 30px;
             box-sizing: border-box;
             margin-bottom: 30px;
-
-            .titleName {
-                height: 120px;
-                width: 100%;
-                font-size: 20px;
-                font-weight: bold;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
+            padding-bottom: 80px;
 
             .sort {
                 width: 100%;
@@ -354,11 +349,6 @@ export default {
 
             .empty,
             .network {
-                .tips {
-                    font-size: 20px;
-                    color: #999999;
-                }
-
                 width: 100%;
                 text-align: center;
                 padding: 100px 0;
