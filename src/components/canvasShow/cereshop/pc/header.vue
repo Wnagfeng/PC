@@ -153,8 +153,6 @@ export default {
     // margin-right: 100px;
 
     span {
-      // 替换变量
-      // color: $mainColor;
       color: #FF7800;
       cursor: pointer;
     }
@@ -171,8 +169,6 @@ export default {
         cursor: pointer;
 
         b {
-          // 替换变量
-          // color: $mainColor;
           color: #FF7800;
 
           padding: 0 2px;
@@ -213,8 +209,6 @@ export default {
         }
 
         .hover-item {
-          // 替换变量
-          // color: $mainColor;
           color: #FF7800;
         }
       }
@@ -245,8 +239,6 @@ export default {
         line-height: 26px;
         text-align: center;
         color: #fff;
-        // 替换变量
-        // background-color: $mainColor;
         background-color: #FF7800;
         border-radius: 4px;
         margin-bottom: 40px;
@@ -309,8 +301,6 @@ export default {
           }
 
           span {
-            // 替换变量
-            // color: $mainColor;
             color: #FF7800;
             position: absolute;
             top: 0;
@@ -334,8 +324,6 @@ export default {
         line-height: 26px;
         text-align: center;
         color: #fff;
-        // 替换变量
-        // background-color: $mainColor;
         background-color: #FF7800;
         border-radius: 4px;
         margin-top: 10px;
@@ -455,8 +443,6 @@ export default {
           cursor: pointer;
 
           &:hover {
-            // 替换变量
-            // color: $mainColor;
             color: #FF7800;
           }
         }
@@ -466,9 +452,6 @@ export default {
     .search {
       width: 472px;
       max-width: 100%;
-
-      // 替换变量
-      // border: 1px solid $mainColor;
       border: 1px solid #FF7800;
       border-radius: 4px;
       height: 46px;
@@ -531,8 +514,6 @@ export default {
       .btn {
         width: 80px;
         height: 46px;
-        // 替换变量
-        // background-color: $mainColor;
         background-color: #FF7800;
         color: #fff;
         line-height: 46px;

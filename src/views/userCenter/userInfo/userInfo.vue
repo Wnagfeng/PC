@@ -222,8 +222,6 @@ export default {
             }
 
             span:nth-child(2) {
-                // 替换变量
-                // color: $mainColor;
                 color: #FF7800;
                 margin-left: 10px;
             }
@@ -240,14 +238,12 @@ export default {
         height: 30px;
         line-height: 30px;
         background: #FFFFFF;
-        // 替换变量
-        // border: 1px solid $mainColor;
+
         border: 1px solid #FF7800;
 
         border-radius: 4px;
         text-align: center;
-        // 替换变量
-        // color: $mainColor;
+
         color: #FF7800;
         cursor: pointer;
     }

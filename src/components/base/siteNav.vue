@@ -176,8 +176,6 @@ export default {
     float: left;
 
     span {
-      // 替换变量
-      // color: $mainColor;
       color: #FF7800;
       cursor: pointer;
     }
@@ -222,8 +220,6 @@ export default {
         cursor: pointer;
 
         b {
-          // 替换变量
-          // color: $mainColor;
           color: #FF7800;
           padding: 0 2px;
         }
@@ -264,8 +260,6 @@ export default {
         }
 
         .hover-item {
-          //  替换变量
-          // color: $mainColor;
           color: #FF7800;
         }
       }
@@ -302,8 +296,6 @@ export default {
         line-height: 26px;
         text-align: center;
         color: #fff;
-        // 替换变量
-        // background-color: $mainColor;
         background-color: #FF7800;
 
         border-radius: 4px;
@@ -354,8 +346,6 @@ export default {
             color: #333;
             cursor: pointer;
             font-size: 14px;
-            // 替换混入
-            // @include ellipsis;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -364,16 +354,12 @@ export default {
           p {
             color: #999;
             font-size: 14px;
-            // 替换混入
-            // @include ellipsis;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
           }
 
           span {
-            // 替换变量
-            // color: $mainColor;
             color: #FF7800;
             position: absolute;
             top: 0;
@@ -399,8 +385,6 @@ export default {
         line-height: 26px;
         text-align: center;
         color: #fff;
-        // 替换变量
-        // background-color: $mainColor;
         background-color: #FF7800;
         border-radius: 4px;
         margin-top: 10px;
