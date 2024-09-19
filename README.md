@@ -176,9 +176,9 @@ import placeOrder from '../views/placeOrder/placeOrder.vue'//3.下单
 
 ### 6.关于代码的疑惑:boom:：​
 
-####  1.`productDetail.vue`:hammer:：
+####  6.1.`productDetail.vue`:hammer:：
 
-##### 1.1 数据结构问题:card_file_box: :
+##### 6.1.1 数据结构问题:card_file_box: :
 
 该页面中的加入购物车逻辑中，`skuList`感觉是他写错了，应该是对象他可能写成了数组,暂时不知道，比赛再看，我的练习暂时使用对象代替：
 
@@ -201,11 +201,11 @@ specSelected(value) {
 }
 ```
 
-##### 1.2 样式问题：
+##### 6.1.2 样式问题：
 
 该页面的整体样式都要做一下微调，笔记本上看是刚好的，在副屏上看就分布不是太均匀了，可以考虑调整一下布局，让其更加美观
 
-##### 1.3 路由问题：
+##### 6.1.3 路由问题：
 
 当我点击商品详情页面的猜你喜欢的时候，别人写的源码是拿到点击的商品ID `push` 到当前页面，也就是我们需要做一次强刷，主办方给的部分源码中在`App.vue`中对`reload`方法做了提供，我们只在需要使用的页面中做一下 `inject: ['reload']` 就能直接通过 `this.reload`直接使用！
 
@@ -301,13 +301,14 @@ goToProDetail(item) {
 }
 ```
 
-#### 2.`placeOrder.vue`:hammer: :
+#### 6.2.`placeOrder.vue`:hammer: :
 
-##### 2.1数据结构问题:card_file_box: :
+##### 6.2.1数据结构问题:card_file_box: :
 
-该页面中的`orderInfo`给的是数组结构，我感觉是对象，这里我做了改动，一切已实际比赛为准!
+该页面中的`orderInfo`给的是数组结构，我感觉是对象，这里我做了改动，一切已实际比赛为准
 
+### 7.关于请求 :construction_worker:：
 
+在本地测试环境中，如果你想联合后端测试，接口能否跑通，或者想练练接口的Crud，建议关闭 `withCredentials: true`
 
-
-
+我在测试阶段就是这个东西一打开就是跨域问题 关闭就好了,sb主办方给的请求 用的cookie验证方式 我本地用的是token！建议先关闭再练习！
