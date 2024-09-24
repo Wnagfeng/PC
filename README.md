@@ -315,22 +315,9 @@ goToProDetail(item) {
 
 ### 8.练习题汇总:ambulance:：
 
-* ①：**PC商城实现订单查看 **:white_check_mark:
-* ②：**PC商城首页实现商品分类和分类列表展示功能** :white_check_mark:
-* ③：**PC商城实现商品详情 **:white_check_mark:
-* ④：**PC商城实现商品收藏** :white_check_mark:
-* ⑤：**PC商城实现订单评论 **:white_check_mark:
-* ⑥：**PC商城实现地址管理 **:white_check_mark:
-
-## 
-
-## 
-
-## 
-
-## 
-
-## 
-
-## 
-
+* ①：PC商城实现订单查看 :white_check_mark:
+* ②：PC商城首页实现商品分类和分类列表展示功能 :white_check_mark:
+* ③：PC商城实现商品详情 :white_check_mark:
+* ④：PC商城实现商品收藏 :white_check_mark:
+* ⑤：PC商城实现订单评论 :white_check_mark:
+* ⑥：PC商城实现地址管理 :white_check_mark:
