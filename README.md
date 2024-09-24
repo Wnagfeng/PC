@@ -37,6 +37,18 @@ Time: 2024-09-13 —— 2024-09-19
 | `Vue`        | ^2.5.2`  |
 | `Npm`        | 6.14.15  |
 
+你除了需要准备以上环境以外，建议在开始练习以前还需要去先去看看 文件上传和图片的展示，不是普通的展示图片。
+
+后端：
+
+https://github.com/Wnagfeng/StaticexampleBack
+
+前端：
+
+https://github.com/Wnagfeng/staticExample
+
+
+
 ### 2.项目初始化:rocket:：
 
 使用该脚手架创建自己的练习项目
