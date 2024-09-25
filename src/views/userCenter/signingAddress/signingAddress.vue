@@ -147,6 +147,7 @@ export default {
                 method: "GET"
             }
             self.sendReq(params, res => {
+                console.log("获取地址列表成功", res)
                 if (res.status == 200) {
                     this.addressList = res.data
                 } else {
@@ -173,6 +174,7 @@ export default {
                 data: data
             }
             self.sendReq(param, res => {
+                console.log("删除地址成功", res)
                 if (res.status == 200) {
                     this.$message({
                         message: "操作成功",
@@ -208,6 +210,7 @@ export default {
                 method: "POST"
             }
             self.sendReq(param, res => {
+                console.log("修改地址成功", res)
                 if (res.status == 200) {
                     this.$message({
                         message: this.dialogType == 0 ? "修改成功" : "添加成功",

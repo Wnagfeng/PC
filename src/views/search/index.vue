@@ -143,6 +143,7 @@ export default {
                 }
             }
             self.sendReq(params, (res) => {
+                console.log("search", res)
                 if (res.status === 200) {
                     self.productList = res.data.content
                     self.total = res.data.totalElements

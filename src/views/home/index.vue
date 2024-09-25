@@ -202,6 +202,7 @@ export default {
                 if (res.status === 200) {
                     // this.$refs.loadingToast.setCanvasLoading(false)
                     this.BastList = res.data.splice(0, 4)
+                    console.log("Home BastList", res)
                 } else {
                     _this.$message({
                         message: res.msg,
@@ -222,6 +223,7 @@ export default {
                 if (res.status === 200) {
                     // this.$refs.loadingToast.setCanvasLoading(false)
                     this.categoryList = res.data
+                    console.log("Home categoryList", res)
                 } else {
                     _this.$message({
                         message: res.msg,
@@ -238,6 +240,7 @@ export default {
                 method: 'GET'
             }
             this.sendReq(params, (res) => {
+                console.log("Home LikeList", res)
                 if (res.status === 200) {
                     this.LikeList = res.data.splice(0, 4)
                 } else {

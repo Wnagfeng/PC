@@ -225,6 +225,7 @@ export default {
                 }
             }
             self.sendReq(params, (res) => {
+                console.log("地址列表", res)
                 if (res.status === 200) {
                     self.addressData = res.data
                 } else {
@@ -243,6 +244,7 @@ export default {
                 }
             }
             self.sendReq(params, (res) => {
+                console.log("订单信息", res)
                 if (res.status === 200) {
                     self.orderInfo = res.data
                     if (self.orderInfo.addressInfo) {
@@ -267,6 +269,7 @@ export default {
                 }
             }
             self.sendReq(params, (res) => {
+                console.log("订单金额", res)
                 if (res.status === 200) {
                     self.orderComputedInfo = res.data.result
                 } else {
@@ -301,6 +304,7 @@ export default {
             }
             clearInterval(self.chatTimer)
             self.sendReq(params, (res) => {
+                console.log("提交订单", res)
                 if (res.status === 200) {
                     self.$message({
                         message: res.msg,
@@ -334,6 +338,7 @@ export default {
                 method: 'GET'
             }
             vm.sendReq(params, res => {
+                console.log("购物车列表", res)
                 const d = res.data.valid
                 this.setShoppingCart(d)
                 this.setCartNumber(d.length)

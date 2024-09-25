@@ -158,6 +158,7 @@ export default {
             }
             console.log(params)
             this.sendReq(params, res => {
+                console.log("Evaluate Success", res)
                 if (res.status == 200) {
                     this.dialogShow = true
                 } else {

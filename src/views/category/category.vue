@@ -139,6 +139,7 @@ export default {
             }
             self.sendReq(params, (res) => {
                 if (res.status === 200) {
+                    console.log("Category.vue getSearchProducts", res.data)
                     self.productList = res.data.content
                     self.total = res.data.totalElements
                     self.loading = false

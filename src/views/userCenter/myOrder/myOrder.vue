@@ -153,6 +153,7 @@ export default {
                 }
             }
             self.sendReq(params, (res) => {
+                console.log("获取订单列表成功", res)
                 if (res.status === 200) {
                     self.orderList = res.data.content
                     self.total = res.data.totalElements
@@ -184,6 +185,7 @@ export default {
                 }
             }
             self.sendReq(params, (res) => {
+                console.log("支付订单成功", res)
                 if (res.status === 200) {
                     self.getOrderList()
                     self.$message({
@@ -210,6 +212,7 @@ export default {
                 }
             }
             self.sendReq(params, (res) => {
+                console.log("取消订单成功", res)
                 if (res.status === 200) {
                     self.$message({
                         message: '订单取消成功',
@@ -237,6 +240,7 @@ export default {
                 }
             }
             self.sendReq(params, (res) => {
+                console.log("删除订单成功", res)
                 if (res.status === 200) {
                     self.$message({
                         message: '订单删除成功',
@@ -264,6 +268,7 @@ export default {
                 }
             }
             self.sendReq(params, (res) => {
+                console.log("确认收货成功", res)
                 if (res.status === 200) {
                     self.$message({
                         message: '确认收货成功',

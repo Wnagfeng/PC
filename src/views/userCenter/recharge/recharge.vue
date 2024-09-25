@@ -58,6 +58,7 @@ export default {
                 method: 'GET'
             }
             self.sendReq(params, (res) => {
+                console.log("获取充值方案列表成功", res)
                 if (res.status === 200) {
                     self.rechargeList = res.data.recharge_price_ways
                     rLoading.close()
@@ -78,6 +79,7 @@ export default {
                 }
             }
             self.sendReq(params, (res) => {
+                console.log("充值成功", res)
                 if (res.status === 200) {
                     self.$message.success('充值成功')
                     rLoading.close()

@@ -136,6 +136,7 @@ export default {
                 }
             }
             this.sendReq(params, res => {
+                console.log("Favorites List", res)
                 if (res.status === 200) {
                     let data = res.data
                     let list = data.map(item => {
@@ -212,6 +213,7 @@ export default {
             }
             console.log(params)
             this.sendReq(params, res => {
+                console.log("unfavorite", res)
                 if (res.status === 200) {
                     this.$message.success('取消成功')
                     this.edit = false
@@ -248,6 +250,7 @@ export default {
                     }
                 }
                 this.sendReq(params, res => {
+                    console.log("cancelFun for Selected", res)
                     if (res.status === 200) {
                         this.$message.success('取消成功')
                         this.edit = false

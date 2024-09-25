@@ -380,6 +380,7 @@ export default {
                 }
             }
             this.sendReq(params, res => {
+                console.log(" ProductDetail getPlList", res)
                 this.plList = res.data
             })
         },
@@ -395,6 +396,8 @@ export default {
                 url: api.getEvaluateData + this.currentPro.productId
             }
             this.sendReq(params, res => {
+                console.log(" ProductDetail getPlConfig", res)
+                console.log(" ProductDetail getPlConfig", res)
                 this.plConfig = res.data
             })
         },
@@ -407,12 +410,14 @@ export default {
                 method: 'GET'
             }
             self.sendReq(params, (res) => {
+                console.log("ProductDetail getProductInfo", res)
                 if (res.status === 200) {
                     self.productDetailData = res.data.storeInfo
                     self.specList = res.data.productAttr
                     self.favorite = self.productDetailData.userCollect
                     self.skuList = res.data.productValue
                     self.replyCount = res.data.replyCount
+                    
                     // 规格 默认选中第一条
                     this.specList.forEach((item) => {
                         item.attrValue[0].check = true
@@ -433,6 +438,7 @@ export default {
                 method: 'GET'
             }
             this.sendReq(params, (res) => {
+                console.log("ProductDetail getLikeProduct", res)
                 if (res.status === 200) {
                     this.similarProducts = res.data.splice(0, 4)
                 } else {
@@ -480,6 +486,7 @@ export default {
                 }
                 self.sendReq(params, (res) => {
                     if (res.status === 200) {
+                        console.log("ProductDetail clickAddCart", res)
                         self.$message.success('添加成功')
                         self.getTrolleyList()
                     } else {
@@ -499,6 +506,7 @@ export default {
             }
             self.sendReq(params, res => {
                 const d = res.data.valid
+                console.log("ProductDetail getTrolleyList", res)
                 this.setShoppingCart(d)
                 this.setCartNumber(d.length)
             })
@@ -537,6 +545,7 @@ export default {
                 }
                 self.sendReq(params, (res) => {
                     if (res.status === 200) {
+                        console.log("ProductDetail buyGood", res)
                         let cartId = res.data.cartId
                         // 跳转到订单页面 携带购物车id
                         this.$router.push({
@@ -598,6 +607,7 @@ export default {
                     }
                 }
                 this.sendReq(params, (res) => {
+                    console.log(" ProductDetail collect", res)
                     if (res.status === 200) {
                         this.$message.success('收藏成功')
                         this.favorite = true
@@ -613,6 +623,7 @@ export default {
                     }
                 }
                 this.sendReq(params, (res) => {
+                    console.log(" ProductDetail unfavorite", res)
                     if (res.status === 200) {
                         this.$message.success('取消成功')
                         this.favorite = false
