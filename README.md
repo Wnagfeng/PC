@@ -333,3 +333,54 @@ goToProDetail(item) {
 * ④：PC商城实现商品收藏 :white_check_mark:
 * ⑤：PC商城实现订单评论 :white_check_mark:
 * ⑥：PC商城实现地址管理 :white_check_mark:
+
+### 9.关于订单详情页面:package:：
+
+我的订单页面和订单详情页面，无疑是最复杂的页面，由于没有写后端，所以关于不同的订单状态只能通过写死来控制
+
+#### 9.1订单状态详情:label:：
+
+```shell
+0——待付款
+1——待发货
+2——待收货
+3——待评价
+4——已完成
+```
+
+#### 9.2订单状态页面的思路:label:
+
+首页整个myOrder.vue负责整个我的订单列表的展示
+
+OrderList.vue组件负责展示各种不同的订单分为0-4四种状态，其实就是 status和operate 中用了v-if去控制不同的订单状态去展示。该页面接受props 也就是orderList来展示，所以你如果像看其他的状态直接在myOrder.vue页面中的orderList中的statusDto中的type去修改对应的数字就能看见了。
+
+但是当你修改了myOrder.vue中的type你会发现他改变的只是点订单的状态，点击查看订单详情，还是没有变啊，未鸡毛啊？因为在orderList.vue中你在点击商品详情的时候他会携带当前点击的订单的id去到 `orderDetail` 展示你需要查看的订单的详情数据
+
+```js
+// 跳转到订单详情
+toOrderDetail(id) {
+    this.$router.push({
+        path: '/orderDetail',
+        query: {
+            orderId: id
+        }
+    })
+},
+```
+
+以上就是跳转到订单详情页面的函数，我只是携带了当前点击的订单的id去跳转，并没有携带其他的数据！所以就你点击订单详情，只是跳转了，因为没有后端，数据都是写死的，所以你如果想做到不同的订单查看不同的订单详情页面，你还需要去到orderDetail.vue页面去修改statusDto中的type，这样能查看五种订单状态与订单详情了。
+
+你可能会有的疑惑：
+
+问：手动修改，比赛怎么办，岂不是GG了？
+
+答：我只是在这里写死，比赛都有后端，每个页面都有网络请求，都会自动根据不同的订单获取到不同的订单数据，比赛并不需要我们手动修改，这点有点前端经验都知道data都是空的，数据都在后端，Come On ！
+
+
+
+总结：
+该页面比较特殊，想要查看不同的订单状态与不同的订单详情页面，需要修改两个数据
+
+* 1、myOrder.vue中的statusDto中的type
+* 2、orderDetail.vue中的statusDto中的type
+
