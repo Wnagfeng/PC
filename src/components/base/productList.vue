@@ -1,7 +1,7 @@
 <template>
   <div class="product">
     <div class="productBox" v-for="(item, index) in productList" :key="index">
-      <!-- 改变源代码 -->
+      <!-- 替换Url -->
       <!-- <img class="cur-poi" :src="$api.BASEURL + item.image" /> -->
       <img class="cur-poi" :src="item.image" @click="toProductDetail(item)" />
       <p class="productName">{{ item.storeName }}</p>

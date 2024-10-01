@@ -1,6 +1,7 @@
 <template>
   <div class="orderDetail">
     <div class="content">
+      <!-- 头部 -->
       <div class="head">
         <router-link to="/myOrder">
           <div class="myOrder">我的订单</div>
@@ -8,6 +9,7 @@
         <div class='arrow'></div>
         <div class="myOrderDetail">订单详情</div>
       </div>
+      <!-- 订单状态 -->
       <div class="status">
         <div class="left">
           <p class="myOrderDetailNumber">订单号：{{ orderDetail.orderId }}</p>
@@ -29,19 +31,25 @@
             <p class="statusTestOne">已完成</p>
           </div>
         </div>
+
         <div class="right">
-          <StatusOne :createTime="orderDetail.createTime"
+          <!-- 0.等待付款 -->
+          <PendingPayment :createTime="orderDetail.createTime"
             v-if="orderDetail.statusDto && orderDetail.statusDto.type == 0">
-          </StatusOne>
-          <StatusTwo :createTime="orderDetail.createTime"
+          </PendingPayment>
+          <!-- 1.付款成功待发货 -->
+          <PaymentSuccess :createTime="orderDetail.createTime"
             v-if="orderDetail.statusDto && orderDetail.statusDto.type == 1">
-          </StatusTwo>
-          <StatusThree :createTime="orderDetail.createTime"
-            v-if="orderDetail.statusDto && orderDetail.statusDto.type == 2"></StatusThree>
-          <StatusFour :createTime="orderDetail.createTime"
-            v-if="orderDetail.statusDto && orderDetail.statusDto.type > 2"></StatusFour>
+          </PaymentSuccess>
+          <!-- 2.发货成功待收货 -->
+          <ReceiptPending :createTime="orderDetail.createTime"
+            v-if="orderDetail.statusDto && orderDetail.statusDto.type == 2"></ReceiptPending>
+          <!-- 3.已完成待评价 -->
+          <PendingReview :createTime="orderDetail.createTime"
+            v-if="orderDetail.statusDto && orderDetail.statusDto.type > 2"></PendingReview>
         </div>
       </div>
+      <!-- 描述 -->
       <div class="desc">
         <div class="receivingInfo">
           <p class="title">收货信息</p>
@@ -51,6 +59,7 @@
             <p>收货电话：{{ orderDetail.userPhone }}</p>
           </div>
         </div>
+        <!-- Ordertitle -->
         <div class="orderInfo">
           <p class="title">订单信息</p>
           <div class="info">
@@ -59,7 +68,7 @@
             <p>备注：{{ orderDetail.remark }}</p>
           </div>
         </div>
-
+        <!-- 订单商品信息 -->
         <div class="productInfo">
           <div class="top">
             <span class="baby">宝贝</span>
@@ -86,6 +95,7 @@
             <div class="bottomPrice">¥{{ item.productInfo.attrInfo.price }}</div>
           </div>
         </div>
+        <!-- 订单结算信息 -->
         <div class="settlement">
           <div class="box">
             <div class="left">
@@ -100,6 +110,7 @@
         </div>
       </div>
     </div>
+    <!-- 弹出框 -->
     <el-dialog title="提示" :visible.sync="closeOrderDialog" width="30%" :before-close="closeOrderBtn">
       <span>是否取消该订单?</span>
       <span slot="footer" class="dialog-footer">
@@ -110,20 +121,20 @@
   </div>
 </template>
 <script>
-import StatusOne from './cpns/statusOne.vue'
-import StatusTwo from './cpns/statusTwo.vue'
-import StatusThree from './cpns/statusThree.vue'
-import StatusFour from './cpns/statusFour.vue'
+import PendingPayment from './cpns/PendingPayment .vue'
+import PaymentSuccess from './cpns/PaymentSuccess .vue'
+import ReceiptPending from './cpns/ReceiptPending .vue'
+import PendingReview from './cpns/PendingReview .vue'
 import api from '../../api'
 import { listSearchMixin } from '../../config/mixin'
 import { mapMutations } from 'vuex'
 export default {
   mixins: [listSearchMixin],
   components: {
-    StatusOne,
-    StatusTwo,
-    StatusThree,
-    StatusFour
+    PendingPayment,
+    PaymentSuccess,
+    ReceiptPending,
+    PendingReview
   },
   data() {
     return {
@@ -138,7 +149,7 @@ export default {
         payPostage: "10",
         payPrice: "10",
         statusDto: {
-          type: 0,
+          type: 3,
         },
         cartInfo: [
           {

@@ -30,7 +30,7 @@
                         <div class="left fs13">
                             <div class="box" v-for="(items, indexs) in item.cartInfo" :key="indexs">
                                 <div class="desc cur-poi" @click="toProductDetail(items)">
-                                    <!-- 替换展示图片 -->
+                                    <!-- 替换Url -->
                                     <!-- <img :src="$api.BASEURL + items.productInfo.image" alt=""> -->
                                     <img :src="items.productInfo.image" alt="">
                                     <div>
@@ -156,14 +156,14 @@ export default {
         }
     },
     mounted() {
-        console.log("数据来了", this.$props.orderList)
+        console.log("$props数据来了", this.$props.orderList)
     }
 }
 </script>
 <style lang="scss" scoped>
 .orderList {
     width: 100%;
-   
+
 
     .handelbtn {
         cursor: pointer;

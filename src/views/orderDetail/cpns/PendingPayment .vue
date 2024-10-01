@@ -1,9 +1,10 @@
 <template>
     <div class="process">
+
         <div class="box">
             <img src="../../../static/image/submit@2x.png" alt="">
             <p>提交订单</p>
-            <p class="mar-top-10">{{createTime}}</p>
+            <p class="mar-top-10">{{ createTime }}</p>
         </div>
         <div class="spot">
             <p class="fs12 font-color-FF7 mar-bot-10">等待付款</p>
@@ -35,33 +36,38 @@
 <script>
 export default {
     props: ['createTime'],
-    data () {
+    data() {
         return {}
     }
 }
 </script>
 <style lang="scss" scoped>
-.process{
+.process {
     width: 100%;
     display: flex;
     text-align: center;
     margin-top: 100px;
-    .box{
+
+    .box {
         flex: 1;
-        img{
+
+        img {
             width: 35px;
             height: 35px;
             margin-bottom: 20px;
         }
-        p{
+
+        p {
             font-size: 13px;
         }
     }
-    .spot{
+
+    .spot {
         width: 130px;
         position: relative;
         margin-top: 5px;
-        p{
+
+        p {
             position: absolute;
             top: -20px;
             left: 50%;
