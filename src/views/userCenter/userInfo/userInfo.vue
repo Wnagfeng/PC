@@ -160,7 +160,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .userInfo {
     padding: 30px;
     border: 1px solid #E5E5E5;

@@ -150,7 +150,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .site-nav {
   height: 42px;
   background-color: #F1F2F7;

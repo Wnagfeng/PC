@@ -298,6 +298,7 @@ export default {
       align-items: center;
 
       .myOrder {
+  
         margin-right: 10px;
       }
 

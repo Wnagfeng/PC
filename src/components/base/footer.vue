@@ -35,7 +35,7 @@ export default {
     }
 }
 </script>
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .footer {
     width: 100%;
     height: 180px;

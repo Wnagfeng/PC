@@ -17,7 +17,7 @@ export default {
     components: { Footer, SiteNav, CereHeader }
 }
 </script>
-<style scoped lang='less'>
+<style scoped lang='scss'>
 .layout {
     height: 100%;
     overflow: auto;
