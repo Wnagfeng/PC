@@ -2,6 +2,11 @@
   "name": "pc",
   "version": "0.1.0",
   "private": true,
+  "description": "Skills Contest – PC",
+  "author": "CoderJoon",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "https://github.com/Wnagfeng/PC",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
